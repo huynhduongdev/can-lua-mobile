@@ -69,13 +69,16 @@ button {
 }
 
 .hero {
-  position: relative;
-  z-index: 30;
+  position: static;
+  top: auto;
+  z-index: auto;
+  isolation: isolate;
+  overflow: hidden;
   padding: 16px;
   color: #ffffff;
   background:
-    linear-gradient(180deg, rgba(29, 93, 181, 0.98), rgba(21, 69, 141, 0.98)),
-    linear-gradient(90deg, rgba(255, 178, 45, 0.18), transparent);
+    linear-gradient(180deg, #1d5db5, #15458d),
+    linear-gradient(90deg, rgba(255, 178, 45, 0.12), transparent);
 }
 
 .hero::after {
