@@ -1,4 +1,4 @@
-const CACHE_NAME = "rice-weighing-static-v1";
+const CACHE_NAME = "rice-weighing-static-v2";
 const APP_SHELL = [
   "./",
   "./index.html",

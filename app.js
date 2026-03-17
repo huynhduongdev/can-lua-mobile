@@ -420,7 +420,7 @@ function renderBoards() {
         <article class="board-card">
           <div class="board-card__head">
             <div>
-              <span class="section-kicker">Bang can</span>
+              <span class="section-kicker">Bảng cân</span>
               <h3 class="board-card__title">${escapeHtml(board.title)}</h3>
               <p class="board-card__subtitle">
                 Nhập nhanh từng ô rồi xem tổng từng cột ở dòng vàng bên dưới.

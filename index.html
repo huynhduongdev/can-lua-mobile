@@ -21,20 +21,16 @@
 
       <header class="hero panel">
         <div class="hero__copy">
-          <span class="hero__badge">Web Can Lua</span>
-          <h1>Cân theo cột, ra tiền tự động trên điện thoại</h1>
-          <p>
-            Chạm để nhập nhanh từng ô cân, hệ thống tự cộng từng cột, tổng kg và
-            thành tiền. Giao diện to, rõ, dễ dùng cho người không rành công nghệ.
-          </p>
+          <span class="hero__badge">Web Cân Lúa</span>
+          <h1>Cân lúa điện thoại</h1>
+          <p>Nhập theo cột, tự ra kg, tiền và công nợ rất nhanh.</p>
         </div>
 
         <div class="hero__status">
           <div class="hero__pill" id="draftStatus">Phiếu mới</div>
           <div class="hero__quick" id="draftQuickStats">0 kg / 0 bao</div>
           <div class="hero__note">
-            Dữ liệu được lưu ngay trên trình duyệt của điện thoại này để mở lại
-            nhanh, kể cả khi mạng chập chờn.
+            Dữ liệu được lưu ngay trên điện thoại này để mở lại nhanh.
           </div>
         </div>
 
@@ -49,20 +45,10 @@
       </header>
 
       <main class="main-layout">
-        <section class="panel">
-          <div class="section-header">
-            <div>
-              <span class="section-kicker">Tong quan</span>
-              <h2>Nhìn nhanh trong ngày</h2>
-            </div>
-          </div>
-          <div class="overview-grid" id="overviewCards"></div>
-        </section>
-
         <section class="panel form-panel">
           <div class="section-header">
             <div>
-              <span class="section-kicker">Thong tin phieu</span>
+              <span class="section-kicker">Thông tin phiếu</span>
               <h2>Thông tin người bán và cách tính</h2>
             </div>
             <button class="btn btn-ghost" id="clearGridBtn" type="button">
@@ -204,7 +190,7 @@
         <section class="panel results-panel">
           <div class="section-header">
             <div>
-              <span class="section-kicker">Ket qua</span>
+              <span class="section-kicker">Kết quả</span>
               <h2>Tự tính khối lượng và tiền</h2>
             </div>
           </div>
@@ -214,7 +200,7 @@
         <section class="panel board-toolbar">
           <div class="section-header">
             <div>
-              <span class="section-kicker">Bang can</span>
+              <span class="section-kicker">Bảng cân</span>
               <h2>Nhập số cân theo cột</h2>
             </div>
           </div>
@@ -233,7 +219,7 @@
         <section class="panel records-panel">
           <div class="section-header">
             <div>
-              <span class="section-kicker">Da luu</span>
+              <span class="section-kicker">Đã lưu</span>
               <h2>Phiếu cũ có thể mở lại và xóa</h2>
             </div>
             <button class="btn btn-danger btn-ghost" id="clearSavedBtn" type="button">
@@ -246,6 +232,16 @@
             để bắt đầu.
           </div>
           <div class="records-list" id="recordsList"></div>
+        </section>
+
+        <section class="panel">
+          <div class="section-header">
+            <div>
+              <span class="section-kicker">Tổng lưu</span>
+              <h2>Nhìn nhanh dữ liệu đã lưu</h2>
+            </div>
+          </div>
+          <div class="overview-grid" id="overviewCards"></div>
         </section>
       </main>
     </div>
