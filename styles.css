@@ -69,8 +69,7 @@ button {
 }
 
 .hero {
-  position: sticky;
-  top: 6px;
+  position: relative;
   z-index: 30;
   padding: 16px;
   color: #ffffff;
