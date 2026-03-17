@@ -91,6 +91,8 @@ function handleInput(event) {
 }
 
 function handleNewDraft() {
+  document.activeElement?.blur?.();
+
   const preserved = {
     pricePerKg: appState.draft.pricePerKg || DEFAULT_PRICE,
     conversionFactor: appState.draft.conversionFactor || DEFAULT_CONVERSION,
@@ -107,6 +109,8 @@ function handleNewDraft() {
 }
 
 function handleSaveDraft() {
+  document.activeElement?.blur?.();
+
   const draft = sanitizeRecord(appState.draft);
   const summary = computeRecordSummary(draft);
 

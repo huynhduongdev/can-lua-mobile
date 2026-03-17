@@ -69,10 +69,8 @@ button {
 }
 
 .hero {
-  position: static;
-  top: auto;
-  z-index: auto;
-  isolation: isolate;
+  position: relative;
+  z-index: 0;
   overflow: hidden;
   padding: 16px;
   color: #ffffff;
@@ -85,6 +83,7 @@ button {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 0;
   border-radius: inherit;
   background:
     radial-gradient(circle at top right, rgba(255, 255, 255, 0.16), transparent 28%),
