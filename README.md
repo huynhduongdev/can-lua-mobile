@@ -1,4 +1,4 @@
-# 🌾 Cân Lúa Thông Minh: App Free "Vả Sấp Mặt" App Trả Phí!
+# 🌾 Cân Lúa: App Free "Vả Sấp Mặt" App Trả Phí!
 
 **Chuyện là vầy:** Hôm nọ lượn lờ mấy cái store tìm app ghi sổ cân lúa cho tiện, bỗng nhận ra một sự thật nghiệt ngã: **Mấy cái app điện thoại hở tí là đòi thu phí!** Ủa alo? Nông dân, thương lái vác lúa đổ mồ hôi sôi nước mắt, tính toán dăm ba cái bao lúa mà cũng bắt nạp VIP, nâng cấp Premium, rồi còn chèn quảng cáo "nhà tôi 3 đời nhận chữa bệnh" che hết cả màn hình? Điên à? 😤
 
