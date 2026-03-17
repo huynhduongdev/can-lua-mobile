@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Cân lúa">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#1d5db5" />
+      <stop offset="100%" stop-color="#0f3879" />
+    </linearGradient>
+    <linearGradient id="grain" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffcb57" />
+      <stop offset="100%" stop-color="#ff9f10" />
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#bg)" />
+  <path
+    d="M61 162c0-23 18-41 41-41 7 0 14 2 20 5 7-21 26-36 49-36 29 0 53 24 53 53 0 29-24 53-53 53H102c-23 0-41-18-41-41Z"
+    fill="rgba(255,255,255,0.12)"
+  />
+  <path
+    d="M89 72c18 6 33 21 42 42 10-7 21-10 34-10 16 0 31 6 42 17"
+    fill="none"
+    stroke="#ffffff"
+    stroke-linecap="round"
+    stroke-width="12"
+  />
+  <rect x="48" y="132" width="160" height="58" rx="22" fill="#ffffff" />
+  <rect x="62" y="146" width="132" height="30" rx="15" fill="url(#grain)" />
+  <circle cx="88" cy="161" r="12" fill="#ffffff" opacity="0.85" />
+  <circle cx="128" cy="161" r="12" fill="#ffffff" opacity="0.85" />
+  <circle cx="168" cy="161" r="12" fill="#ffffff" opacity="0.85" />
+  <path
+    d="M120 52c6 18 1 37-13 50M146 58c6 16 4 32-6 45"
+    fill="none"
+    stroke="url(#grain)"
+    stroke-linecap="round"
+    stroke-width="11"
+  />
+</svg>

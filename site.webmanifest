@@ -1,0 +1,17 @@
+{
+  "name": "Can Lua Thong Minh",
+  "short_name": "Can Lua",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fff7ef",
+  "theme_color": "#1d5db5",
+  "lang": "vi",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

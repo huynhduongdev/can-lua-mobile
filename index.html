@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cân Lúa Thông Minh</title>
+    <meta
+      name="description"
+      content="Web cân lúa trên điện thoại: nhập theo cột, tự tính kg, tiền, công nợ và lưu phiếu ngay trên trình duyệt."
+    >
+    <meta name="theme-color" content="#1d5db5">
+    <link rel="icon" href="./icon.svg" type="image/svg+xml">
+    <link rel="manifest" href="./site.webmanifest">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="ambient ambient-a" aria-hidden="true"></div>
+      <div class="ambient ambient-b" aria-hidden="true"></div>
+
+      <header class="hero panel">
+        <div class="hero__copy">
+          <span class="hero__badge">Web Can Lua</span>
+          <h1>Cân theo cột, ra tiền tự động trên điện thoại</h1>
+          <p>
+            Chạm để nhập nhanh từng ô cân, hệ thống tự cộng từng cột, tổng kg và
+            thành tiền. Giao diện to, rõ, dễ dùng cho người không rành công nghệ.
+          </p>
+        </div>
+
+        <div class="hero__status">
+          <div class="hero__pill" id="draftStatus">Phiếu mới</div>
+          <div class="hero__quick" id="draftQuickStats">0 kg / 0 bao</div>
+          <div class="hero__note">
+            Dữ liệu được lưu ngay trên trình duyệt của điện thoại này để mở lại
+            nhanh, kể cả khi mạng chập chờn.
+          </div>
+        </div>
+
+        <div class="hero__actions">
+          <button class="btn btn-secondary" id="newRecordBtn" type="button">
+            Phiếu mới
+          </button>
+          <button class="btn btn-primary" id="saveRecordBtn" type="button">
+            Lưu phiếu
+          </button>
+        </div>
+      </header>
+
+      <main class="main-layout">
+        <section class="panel">
+          <div class="section-header">
+            <div>
+              <span class="section-kicker">Tong quan</span>
+              <h2>Nhìn nhanh trong ngày</h2>
+            </div>
+          </div>
+          <div class="overview-grid" id="overviewCards"></div>
+        </section>
+
+        <section class="panel form-panel">
+          <div class="section-header">
+            <div>
+              <span class="section-kicker">Thong tin phieu</span>
+              <h2>Thông tin người bán và cách tính</h2>
+            </div>
+            <button class="btn btn-ghost" id="clearGridBtn" type="button">
+              Xóa dữ liệu cân
+            </button>
+          </div>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Tên người bán</span>
+              <input
+                class="js-field"
+                data-field="name"
+                id="customerName"
+                maxlength="40"
+                placeholder="Ví dụ: Anh Kiệt"
+                type="text"
+              >
+              <small>Hiển thị rõ trên phiếu đã lưu.</small>
+            </label>
+
+            <label class="field">
+              <span>Điện thoại</span>
+              <input
+                class="js-field"
+                data-field="phone"
+                id="customerPhone"
+                maxlength="30"
+                placeholder="Có thể để trống"
+                type="tel"
+              >
+              <small>Dùng để gọi lại khi cần.</small>
+            </label>
+
+            <label class="field">
+              <span>Ngày cân</span>
+              <input
+                class="js-field"
+                data-field="date"
+                id="recordDate"
+                type="date"
+              >
+              <small>Lấy ngày hiện tại mặc định.</small>
+            </label>
+
+            <label class="field">
+              <span>Đơn giá / 1 kg</span>
+              <input
+                class="js-field js-number"
+                data-field="pricePerKg"
+                id="pricePerKg"
+                inputmode="decimal"
+                placeholder="6500"
+                type="text"
+              >
+              <small>Nhập một lần, tiền sẽ ra tự động.</small>
+            </label>
+
+            <label class="field">
+              <span>Quy đổi sang kg</span>
+              <input
+                class="js-field js-number"
+                data-field="conversionFactor"
+                id="conversionFactor"
+                inputmode="decimal"
+                placeholder="10"
+                type="text"
+              >
+              <small>Ví dụ nhập 654, chia 10 thành 65.4 kg.</small>
+            </label>
+
+            <label class="field">
+              <span>Trừ bì (kg)</span>
+              <input
+                class="js-field js-number"
+                data-field="tareKg"
+                id="tareKg"
+                inputmode="decimal"
+                placeholder="0"
+                type="text"
+              >
+              <small>Khối lượng bao bì hoặc phần cần trừ.</small>
+            </label>
+
+            <label class="field">
+              <span>Trừ tạp chất (kg)</span>
+              <input
+                class="js-field js-number"
+                data-field="impurityKg"
+                id="impurityKg"
+                inputmode="decimal"
+                placeholder="0"
+                type="text"
+              >
+              <small>Cho phép trừ thêm thủ công.</small>
+            </label>
+
+            <label class="field">
+              <span>Tiền cọc</span>
+              <input
+                class="js-field js-number"
+                data-field="deposit"
+                id="deposit"
+                inputmode="decimal"
+                placeholder="0"
+                type="text"
+              >
+              <small>Khoản cọc đã nhận trước.</small>
+            </label>
+
+            <label class="field">
+              <span>Đã trả thêm</span>
+              <input
+                class="js-field js-number"
+                data-field="paid"
+                id="paid"
+                inputmode="decimal"
+                placeholder="0"
+                type="text"
+              >
+              <small>Tự trừ vào số tiền còn lại.</small>
+            </label>
+
+            <label class="field field--wide">
+              <span>Ghi chú</span>
+              <textarea
+                class="js-field"
+                data-field="note"
+                id="note"
+                maxlength="200"
+                placeholder="Ghi chú thêm nếu cần..."
+                rows="3"
+              ></textarea>
+              <small>Ví dụ: lúa đẹp, hẹn thanh toán chiều.</small>
+            </label>
+          </div>
+        </section>
+
+        <section class="panel results-panel">
+          <div class="section-header">
+            <div>
+              <span class="section-kicker">Ket qua</span>
+              <h2>Tự tính khối lượng và tiền</h2>
+            </div>
+          </div>
+          <div class="result-grid" id="resultCards"></div>
+        </section>
+
+        <section class="panel board-toolbar">
+          <div class="section-header">
+            <div>
+              <span class="section-kicker">Bang can</span>
+              <h2>Nhập số cân theo cột</h2>
+            </div>
+          </div>
+          <div class="toolbar-actions">
+            <button class="btn btn-secondary" id="addBoardBtn" type="button">
+              Thêm bảng cân
+            </button>
+            <div class="toolbar-help">
+              Mỗi ô là một lần cân. App sẽ tự cộng từng cột và tổng chung.
+            </div>
+          </div>
+        </section>
+
+        <section class="boards" id="boardsContainer"></section>
+
+        <section class="panel records-panel">
+          <div class="section-header">
+            <div>
+              <span class="section-kicker">Da luu</span>
+              <h2>Phiếu cũ có thể mở lại và xóa</h2>
+            </div>
+            <button class="btn btn-danger btn-ghost" id="clearSavedBtn" type="button">
+              Xóa tất cả
+            </button>
+          </div>
+
+          <div class="empty-state" id="recordsEmpty">
+            Chưa có phiếu nào được lưu. Nhập cân rồi bấm <strong>Lưu phiếu</strong>
+            để bắt đầu.
+          </div>
+          <div class="records-list" id="recordsList"></div>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
